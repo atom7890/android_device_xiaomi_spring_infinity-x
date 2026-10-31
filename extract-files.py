@@ -100,6 +100,29 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
 }  # fmt: skip
 
+# BEGIN SPRING VERIFIED LIVE BEAUTY FIX
+from extract_utils.fixups_blob import blob_fixup as _spring_beauty_fixup
+_spring_beauty_key = 'vendor/lib64/camera/components/com.mi.node.tsskinbeautifier.so'
+_spring_beauty_chain = blob_fixups.get(_spring_beauty_key, _spring_beauty_fixup())
+blob_fixups[_spring_beauty_key] = (_spring_beauty_chain
+    .sig_replace('00 20 80 52 f6 17 00 f9 ff 7f 04 a9 b2 10 00 94', '00 a6 81 52 f6 17 00 f9 ff 7f 04 a9 b2 10 00 94')
+    .sig_replace('00 20 80 52 a0 10 00 94 a3 12 44 29 e1 03 18 aa', '00 a6 81 52 a0 10 00 94 a3 12 44 29 e1 03 18 aa')
+)
+# END SPRING VERIFIED LIVE BEAUTY FIX
+
+# BEGIN SPRING VERIFIED REAR PORTRAIT FIX
+# Permit rear Portrait processing when xiaomi.qvga.light.number is absent.
+# Keep the existing decision when that metadata is present.
+from extract_utils.fixups_blob import blob_fixup as _spring_portrait_fixup
+_spring_portrait_key = 'vendor/lib64/com.xiaomi.plugin.mibokeh.so'
+_spring_portrait_chain = blob_fixups.get(_spring_portrait_key, _spring_portrait_fixup())
+blob_fixups[_spring_portrait_key] = (_spring_portrait_chain
+    .sig_replace(
+        'e8 03 40 f9 48 04 00 b4 89 00 00 90 29 1d 42 f9',
+        'e8 03 40 f9 08 04 00 b4 89 00 00 90 29 1d 42 f9',
+    )
+)
+# END SPRING VERIFIED REAR PORTRAIT FIX
 
 module = ExtractUtilsModule(
     'spring',
