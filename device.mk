@@ -13,6 +13,9 @@ $(call inherit-product, hardware/dolby/dolby.mk)
 PRODUCT_PACKAGES += \
     LunarisDolby
 
+# Miui Camera
+$(call inherit-product-if-exists, device/xiaomi/spring-miuicamera/device.mk)
+
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 

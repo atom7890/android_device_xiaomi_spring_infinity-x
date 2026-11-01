@@ -241,3 +241,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Vendor
 include vendor/xiaomi/spring/BoardConfigVendor.mk
+
+# Miui Camera
+include device/xiaomi/spring-miuicamera/BoardConfig.mk
