@@ -124,6 +124,15 @@ blob_fixups[_spring_portrait_key] = (_spring_portrait_chain
 )
 # END SPRING VERIFIED REAR PORTRAIT FIX
 
+# BEGIN SPRING CAMERA CLIENT RESET V2
+# Clear stale client identity when the last tracked camera session is torn down.
+_spring_client_key = 'vendor/lib64/hw/com.qti.chi.override.so'
+blob_fixups[_spring_client_key] = (blob_fixups.get(_spring_client_key, blob_fixup())
+    .sig_replace('fd 7b c6 a8 c0 03 5f d6 99 08 00 b0 39 3f 46 f9 31 03 40 b9 3f 06 00 71 61 02 00 54 f4 ee ff d0 94 62 24 91 22 09 80 52 e1 05 80 52 e0 03 14 aa 7a 15 04 94 1f 00 00 f1 a1 f1 ff b0 21 e8 18 91 83 06 80 9a 42 f0 ff 90', 'fd 7b c6 a8 c0 03 5f d6 88 32 58 f9 c8 00 00 b5 20 f0 ff d0 00 70 23 91 81 ef ff f0 21 28 2d 91 fa 19 04 94 f4 4f 45 a9 f6 57 44 a9 f8 5f 43 a9 fa 67 42 a9 fc 6f 41 a9 fd 7b c6 a8 c0 03 5f d6 83 06 80 9a 42 f0 ff 90')
+    .sig_replace('2a 03 40 39 0a 01 18 37 f4 4f 45 a9 f6 57 44 a9 f8 5f 43 a9', '2a 03 40 39 0a 01 18 37 07 00 00 14 f6 57 44 a9 f8 5f 43 a9')
+)
+# END SPRING CAMERA CLIENT RESET V2
+
 module = ExtractUtilsModule(
     'spring',
     'xiaomi',
