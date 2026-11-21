@@ -29,3 +29,12 @@ install_symlink {
     installed_location: "app/CneApp/lib/arm64/libvndfwk_detect_jni.qti.so",
     symlink_target: "/vendor/lib64/libvndfwk_detect_jni.qti.so",
 }
+
+// Install the template used to initialize fresh /data/vendor/wifi/wpa configs.
+prebuilt_etc {
+    name: "spring_wpa_supplicant_conf",
+    src: ":wpa_supplicant_conf_gen",
+    filename: "wpa_supplicant.conf",
+    relative_install_path: "wifi",
+    vendor: true,
+}
