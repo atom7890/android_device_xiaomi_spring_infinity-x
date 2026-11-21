@@ -16,10 +16,3 @@ telephony.lteOnCdmaDevice=1
 
 # Wi-Fi Display
 persist.debug.wfd.enable=1
-
-# infinity
-ro.product.marketname=Xiaomi Redmi 15 5G 
-ro.infinity.soc=Snapdragon 6s Gen 3
-ro.infinity.battery=7000mAh Li-Polymer
-ro.infinity.display=1080 x 2340, 144 Hz
-ro.infinity.camera=50MP + 2MP | 8 MP

@@ -4,4 +4,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/infinity_spring.mk
+    $(LOCAL_DIR)/aospa_spring.mk
+
+COMMON_LUNCH_CHOICES := \
+    aospa_spring-userdebug

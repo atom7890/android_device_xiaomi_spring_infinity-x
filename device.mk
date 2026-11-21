@@ -298,7 +298,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi \
+    hardware/qcom/wlan/qcwcn/wpa_supplicant_8_lib \
+    hardware/qcom-caf/sm6375-6.1 \
     vendor/qcom/opensource/usb/etc
+
+
+# PenguinOS Specific    
+PRODUCT_SOURCE_ROOT_DIRS += -vendor/qcom/common
+PRODUCT_SOURCE_ROOT_DIRS += -hardware/xiaomi/aidl/touch
+PRODUCT_SOURCE_ROOT_DIRS += -hardware/dolby/shim
+PRODUCT_SOURCE_ROOT_DIRS += -hardware/xiaomi/packages/Euicc
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -316,13 +325,13 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils-prd \
     qti_telephony_utils.xml \
     qti_telephony_utils_prd.xml \
-    telephony-ext
+    telephony-ext \
+    libvndfwk_detect_jni.qti.vendor
 
 PRODUCT_PACKAGES += \
     xiaomi-telephony-stub
 
 PRODUCT_BOOT_JARS += \
-    telephony-ext \
     xiaomi-telephony-stub
 
 PRODUCT_COPY_FILES += \

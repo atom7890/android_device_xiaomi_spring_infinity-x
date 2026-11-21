@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="penguin_maintainer" translatable="false">atom7890</string>
+    <string name="config_device_soc_name" translatable="false">Snapdragon 6s Gen 3</string>
+    <string name="config_device_display_size" translatable="false">6.9\"</string>
+    <string name="config_device_camera_spec" translatable="false">50 MP rear | 8 MP front</string>
+</resources>

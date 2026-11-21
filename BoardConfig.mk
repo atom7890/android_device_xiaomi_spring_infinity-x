@@ -90,6 +90,7 @@ BOARD_BOOTCONFIG := \
 
 # Kernel (prebuilt)
 PREBUILT_PATH := device/xiaomi/spring-kernel
+TARGET_PREBUILT_KERNEL := $(PREBUILT_PATH)/images/kernel
 TARGET_NO_KERNEL_OVERRIDE := true
 TARGET_KERNEL_SOURCE := $(PREBUILT_PATH)/kernel-headers
 BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_PATH)/images/dtbs/
@@ -119,7 +120,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(RAMDISK_MODULES_PATH)/mo
 BOARD_USES_METADATA_PARTITION := true
 
 # Partitions
--include vendor/infinity/config/BoardConfigReservedSize.mk
+-include vendor/lineage/config/BoardConfigReservedSize.mk
 
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
