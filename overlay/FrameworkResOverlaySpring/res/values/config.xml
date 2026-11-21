@@ -613,5 +613,9 @@
          (lower-end devices may want to disable) -->
     <bool name="config_deviceSupportsHighPerfTransitions">false</bool>
 
-    <bool name="config_supportDoubleTapWake">true</bool>
+    <!-- PenguinOS gestures use Linux scan codes; the touchscreen emits KEY_WAKEUP (143). -->
+    <bool name="config_enableKeyHandler">true</bool>
+    <integer name="config_doubleTapKeyCode">143</integer>
+    <!-- Disabled until the user selects a gesture action. -->
+    <integer name="config_doubleTapDefault">0</integer>
 </resources>

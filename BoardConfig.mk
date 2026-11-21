@@ -245,3 +245,6 @@ include vendor/xiaomi/spring/BoardConfigVendor.mk
 
 # Miui Camera
 include device/xiaomi/spring-miuicamera/BoardConfig.mk
+
+# Connect PenguinOS off-screen gestures to the spring touchscreen handler.
+TARGET_POWER_FEATURE_EXT_LIB := //device/xiaomi/spring:libpowerfeature-ext-spring
