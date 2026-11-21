@@ -313,6 +313,7 @@ PRODUCT_SOURCE_ROOT_DIRS += -vendor/qcom/common
 PRODUCT_SOURCE_ROOT_DIRS += -hardware/xiaomi/aidl/touch
 PRODUCT_SOURCE_ROOT_DIRS += -hardware/dolby/shim
 PRODUCT_SOURCE_ROOT_DIRS += -hardware/xiaomi/packages/Euicc
+PRODUCT_SOURCE_ROOT_DIRS += -hardware/xiaomi/packages/EsimSwitcher
 
 # Telephony
 PRODUCT_PACKAGES += \
