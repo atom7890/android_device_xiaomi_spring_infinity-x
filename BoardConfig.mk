@@ -172,8 +172,19 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Sepolicy
+# Include Qualcomm policies here instead of automatically including them later.
+TARGET_EXCLUDE_QCOM_SEPOLICY := true
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+include device/qcom/common/sepolicy/SEPolicy.mk
+
+# Substitute the device-local common policy copy.
+BOARD_VENDOR_SEPOLICY_DIRS := $(filter-out \
+    device/qcom/common/sepolicy/generic/vendor/common,\
+    $(BOARD_VENDOR_SEPOLICY_DIRS))
+
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy/qcom-common \
+    $(DEVICE_PATH)/sepolicy/vendor
 
 # Vendor security patch
 VENDOR_SECURITY_PATCH := 2026-06-05
@@ -248,3 +259,6 @@ include device/xiaomi/spring-miuicamera/BoardConfig.mk
 
 # Connect PenguinOS off-screen gestures to the spring touchscreen handler.
 TARGET_POWER_FEATURE_EXT_LIB := //device/xiaomi/spring:libpowerfeature-ext-spring
+
+# Device-only compatibility for legacy OEM property names and core clients.
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private

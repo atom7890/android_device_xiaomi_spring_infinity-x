@@ -1,0 +1,3 @@
+
+# The legacy vndbinder name must not use the modern QMS binder service type.
+type vendor_qms_vndservice, vndservice_manager_type;

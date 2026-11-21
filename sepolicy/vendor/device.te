@@ -9,3 +9,6 @@ type vendor_fingerprint_device, dev_type;
 
 # Touch
 type touchfeature_device, dev_type;
+
+# Infrared device
+type lirc_device, dev_type;

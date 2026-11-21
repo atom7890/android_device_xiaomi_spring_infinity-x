@@ -1,0 +1,13 @@
+# Copyright (C) 2026 The PenguinOS Project
+# SPDX-License-Identifier: Apache-2.0
+
+# Laminar reads supported GPU clocks and writes the KGSL devfreq frequency floor.
+allow hal_power_default vendor_sysfs_kgsl:dir search;
+# The KGSL devfreq entry is a symlink to the device-specific devfreq directory.
+allow hal_power_default vendor_sysfs_kgsl:lnk_file read;
+allow hal_power_default vendor_sysfs_kgsl:file { getattr open read write };
+allow hal_power_default vendor_sysfs_devfreq:dir search;
+allow hal_power_default vendor_sysfs_devfreq:file { getattr open read };
+
+# The hint sessions read the supported refresh rates from DisplayConfig.
+hal_client_domain(hal_power_default, hal_graphics_composer)

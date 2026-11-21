@@ -1,0 +1,11 @@
+# The SM6375 gralloc service allocates display buffers through these DMA heaps.
+allow hal_graphics_allocator_default {
+    vendor_dmabuf_system_heap_device
+    vendor_dmabuf_system_uncached_heap_device
+}:chr_file r_file_perms;
+
+# Permit only DMA_HEAP_IOCTL_ALLOC on the heap character devices.
+allowxperm hal_graphics_allocator_default {
+    vendor_dmabuf_system_heap_device
+    vendor_dmabuf_system_uncached_heap_device
+}:chr_file ioctl DMA_HEAP_IOCTL_ALLOC;

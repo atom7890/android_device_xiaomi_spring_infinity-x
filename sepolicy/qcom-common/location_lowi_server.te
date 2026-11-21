@@ -1,0 +1,10 @@
+allow vendor_location_lowi_server vendor_location:unix_stream_socket { read write connectto};
+
+## send to /dev/socket/location/mq/inet-agent-cs
+allow vendor_location_lowi_server vendor_location_xtwifi_inetagent:unix_dgram_socket sendto;
+
+hal_client_domain(vendor_location_lowi_server, vendor_hal_qms_qti);
+
+# allows loc_launcher to launch lowi-server
+domain_auto_trans(vendor_location, vendor_location_lowi_server_exec, vendor_location_lowi_server)
+allow vendor_location_lowi_server vendor_location:fd use;

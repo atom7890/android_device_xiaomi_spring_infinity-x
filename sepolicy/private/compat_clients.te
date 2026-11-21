@@ -1,0 +1,3 @@
+# Core camera and platform-signed UI consumers of existing configuration types.
+get_prop(cameraserver, vendor_sys_gpp_prop)
+get_prop(platform_app_all, bluetooth_lea_prop)

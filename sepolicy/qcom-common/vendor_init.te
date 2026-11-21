@@ -1,0 +1,11 @@
+# Allow init.aospa.perf.rc to read CPUSets
+allow vendor_init cgroup:file r_file_perms;
+
+# Allow build.prop to set vendor.all.modules.ready
+set_prop(vendor_init, vendor_modprobe_prop)
+
+#Access rcs service
+set_prop(vendor_init, vendor_persist_rcs_qti_prop)
+
+# Access vendor dynamic sensor properties
+set_prop(vendor_init, vendor_dynamic_sensor_prop)

@@ -1,0 +1,31 @@
+# The SM6375 6.1 remoteproc name/state nodes use vendor_sysfs_data.
+# These daemons use libmdmdetect to discover the modem and DSPs.
+allow vendor_per_proxy vendor_sysfs_data:file r_file_perms;
+allow vendor_hal_gnss_qti vendor_sysfs_data:file r_file_perms;
+
+# This device's QMS blob uses /dev/vndbinder and the existing vndservice label.
+allow vendor_qms vendor_qms_vndservice:service_manager { add find };
+
+# Framework battery statistics read the device's existing battery-supply nodes.
+allow system_server vendor_sysfs_battery_supply:file r_file_perms;
+
+# QMI priority service also uses libmdmdetect for remoteproc discovery.
+allow vendor_qmipriod vendor_sysfs_data:file r_file_perms;
+
+# Observed traversal of the device-specific MAC-address directory by RIL.
+allow rild vendor_mac_vendor_data_file:dir search;
+
+# Match the existing Qualcomm policy for legacy privileged/platform app domains.
+hal_client_domain(priv_app_36, vendor_hal_perf)
+hal_client_domain(priv_app_36, vendor_hal_qspmhal)
+hal_client_domain(platform_app_36, vendor_hal_qspmhal)
+
+# Observed native codec/camera clients of the installed performance services.
+hal_client_domain(mediacodec, vendor_hal_perf)
+hal_client_domain(hal_camera_default, vendor_hal_qspmhal)
+
+# Camera runtime reads this public, read-only platform configuration type.
+get_prop(hal_camera_default, zygote_config_prop)
+
+# SystemUI's FPS display reads the existing graphics statistics label.
+allow platform_app vendor_sysfs_graphics:file r_file_perms;

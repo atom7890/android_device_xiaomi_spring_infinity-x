@@ -1,0 +1,5 @@
+# allows loc_launcher to launch xtra-daemon
+domain_auto_trans(vendor_location, vendor_location_xtra_daemon_exec, vendor_location_xtra_daemon)
+allow vendor_location_xtra_daemon vendor_location:fd use;
+
+allow vendor_location_xtra_daemon vendor_location:unix_stream_socket { read write connectto};

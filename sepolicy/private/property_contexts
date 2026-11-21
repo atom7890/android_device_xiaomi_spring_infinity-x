@@ -1,0 +1,8 @@
+# Legacy OEM metadata queried by the radio blob. No values are created or spoofed.
+ro.fota.oem u:object_r:build_prop:s0 exact string
+ro.product.marketname u:object_r:build_prop:s0 exact string
+ro.mi.os.version.incremental u:object_r:build_prop:s0 exact string
+ro.miui.customized.region u:object_r:build_prop:s0 exact string
+
+# Legacy audio tuning capability probe. Leave the existing/default value unchanged.
+sixth.tuning.func u:object_r:audio_config_prop:s0 exact string
