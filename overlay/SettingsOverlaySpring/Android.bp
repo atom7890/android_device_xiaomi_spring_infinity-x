@@ -6,4 +6,6 @@
 runtime_resource_overlay {
     name: "SettingsOverlaySpring",
     vendor: true,
+    resource_libs: ["Settings"],
+    certificate: "platform",
 }

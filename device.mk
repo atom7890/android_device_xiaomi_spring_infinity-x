@@ -3,6 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Compile Settings XML with its own attributes; runtime overlays cannot safely
+# carry the preference-controller attributes used by these pages.
+PRODUCT_PACKAGE_OVERLAYS += device/xiaomi/spring/overlay-static
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += device/xiaomi/spring/overlay-static
+
 # Generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
@@ -257,7 +262,6 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlaySpring \
     FrameworkResOverlaySpring \
     Launcher3OverlaySpring \
-    LineageSettingsProviderOverlaySpring \
     NfcOverlaySpring \
     SettingsOverlaySpring \
     SystemUIOverlaySpring \
