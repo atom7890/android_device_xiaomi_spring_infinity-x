@@ -413,3 +413,6 @@ PRODUCT_PACKAGES += \
 
 # Vendor
 $(call inherit-product, vendor/xiaomi/spring/spring-vendor.mk)
+
+# This product is arm64-only; select the installed 64-bit media server.
+PRODUCT_SYSTEM_PROPERTIES += ro.mediaserver.64b.enable=true
